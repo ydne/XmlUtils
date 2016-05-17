@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<example:shiporder orderid="String" xmlns:example="http://test/example/schema/shiporder/1_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<example:orderperson>String</example:orderperson>
+	<example:shipto>
+		<example:name>String</example:name>
+		<example:address>String</example:address>
+		<example:city>String</example:city>
+		<example:country>String</example:country>
+	</example:shipto>
+	<example:item>
+		<example:title>String</example:title>
+		<example:note>String</example:note>
+		<example:quantity>2</example:quantity>
+		<example:price>0.0</example:price>
+	</example:item>
+</example:shiporder>
