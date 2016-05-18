@@ -7,7 +7,7 @@ import java.io.InputStream;
 import org.junit.Test;
 import org.w3c.dom.Document;
 import org.ydne.xml.SchemaLocator;
-import org.ydne.xml.XmlParser;
+import org.ydne.xml.parse.NamespaceAwareParser;
 
 /**
  * Unit tests for {@link ClasspathSchemaLocator}.
@@ -26,7 +26,7 @@ public class ClasspathSchemaLocatorTest {
 		assertNotNull(is);
 		
 		// Assert: It's an XML file.
-		Document node = new XmlParser().parse(is);
+		Document node = new NamespaceAwareParser().parse(is);
 		assertNotNull(node);
 		
 		// Assert: Subject can locate schema.
