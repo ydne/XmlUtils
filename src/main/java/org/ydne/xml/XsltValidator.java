@@ -4,7 +4,5 @@ import org.w3c.dom.Node;
 
 public interface XsltValidator {
 	
-	public boolean validate(Node xml) throws Exception;
-	
-	public boolean validate(Node xml, String codeExists);
+	boolean validate(Node xml, String xPath, Integer expected) throws Exception;
 }

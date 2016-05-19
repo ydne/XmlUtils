@@ -15,8 +15,11 @@ import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Node;
 import org.ydne.xml.XsltLocator;
+import org.ydne.xml.XsltValidator;
 
-public class DefaultXsltValidator {
+public class DefaultXsltValidator implements XsltValidator {
+	
+	private static final String XPATH_COUNT_EXPRESSION = "count(%s)";
 	
 	private TransformerFactory factory = TransformerFactory.newInstance();
 	private XPathFactory xPathfactory = XPathFactory.newInstance();
@@ -29,35 +32,38 @@ public class DefaultXsltValidator {
 		this.xsltLocator = xsltLocator;
 	}
 
-	public boolean valideer(Node xml) throws Exception {
-		return valideer(xml, null);
-	}
 	
-	public boolean valideer(Node xml, String codeExists) throws Exception {
+	/* (non-Javadoc)
+	 * @see org.ydne.xml.XsltValidator#validate(org.w3c.dom.Node, java.lang.String, java.lang.Integer)
+	 */
+	@Override
+	public boolean validate(Node xml, String xPath, Integer expected) throws Exception {
+		if (xml == null) {
+			throw new IllegalArgumentException("Argument 'xml' can not be null!");
+		}
+		if (xPath == null) {
+			throw new IllegalArgumentException("Argument 'xPath' can not be null!");
+		}
+		if (expected == null) {
+			throw new IllegalArgumentException("Argument 'expected' can not be null!");
+		}
 		
 		URL xslt = xsltLocator.getXslt(xml);
 		if (xslt == null) {
 			return true;
 		}
 		Source stylesource = new StreamSource(new File(xslt.getFile()));
-
+		
 		Transformer transformer = factory.newTransformer(stylesource);
 		
-		Source voor = new DOMSource(xml);
-		DOMResult na = new DOMResult();
-		transformer.transform(voor, na);
+		Source before = new DOMSource(xml);
+		DOMResult after = new DOMResult();
+		transformer.transform(before, after);
 		
-		if (codeExists == null) {
-			XPathExpression telFoutenExpression = xpath.compile("count(//*[local-name() = 'fout'])");
-			String aantalFoutenAsString = telFoutenExpression.evaluate(na.getNode());
-			Integer aantalFouten = Integer.valueOf(aantalFoutenAsString);
-			return aantalFouten==0;
-		} else {
-			XPathExpression telFoutenExpression = xpath.compile("count(//*[local-name()='Code' and text() = '"+codeExists+"'])");
-			String aantalFoutenAsString = telFoutenExpression.evaluate(na.getNode());
-			Integer aantalFouten = Integer.valueOf(aantalFoutenAsString);
-			return aantalFouten>0;
-		}
+		XPathExpression countExpression = xpath.compile(String.format(XPATH_COUNT_EXPRESSION, xPath));
+		String countAsString = countExpression.evaluate(after.getNode());
+		Integer count = Integer.valueOf(countAsString);
+		return expected.equals(count);
 	}
 
 	public XsltLocator getXsltLocator() {

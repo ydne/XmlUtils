@@ -8,6 +8,10 @@ import org.ydne.xml.support.XmlHelper;
 
 public class ClasspathSchemaLocator implements SchemaLocator {
 
+	/* (non-Javadoc)
+	 * @see org.ydne.xml.SchemaLocator#getSchema(org.w3c.dom.Node)
+	 */
+	@Override
 	public URL getSchema(Node xml) {
 		xml = XmlHelper.getFirstElement(xml);
 		

@@ -15,6 +15,10 @@ public class ClasspathXsltLocator implements XsltLocator {
 		this.basePath = basePath.endsWith("/") ? basePath : basePath + "/";
 	}
 
+	/* (non-Javadoc)
+	 * @see org.ydne.xml.XsltLocator#getXslt(org.w3c.dom.Node)
+	 */
+	@Override
 	public URL getXslt(Node xml) {
 		xml = XmlHelper.getFirstElement(xml);
 		
