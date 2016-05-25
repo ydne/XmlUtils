@@ -3,10 +3,10 @@ package org.ydne.xml.locate;
 import java.net.URL;
 
 import org.w3c.dom.Node;
-import org.ydne.xml.SchemaLocator;
+import org.ydne.xml.XmlSchemaLocator;
 import org.ydne.xml.support.XmlHelper;
 
-public class ClasspathSchemaLocator implements SchemaLocator {
+public class ClasspathSchemaLocator implements XmlSchemaLocator {
 
 	/* (non-Javadoc)
 	 * @see org.ydne.xml.SchemaLocator#getSchema(org.w3c.dom.Node)

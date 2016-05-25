@@ -4,7 +4,7 @@ import java.net.URL;
 
 import org.w3c.dom.Node;
 
-public interface SchemaLocator {
+public interface XmlSchemaLocator {
 
 	URL getSchema(Node xml);
 

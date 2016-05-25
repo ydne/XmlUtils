@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import org.junit.Test;
 import org.w3c.dom.Document;
-import org.ydne.xml.SchemaLocator;
+import org.ydne.xml.XmlSchemaLocator;
 import org.ydne.xml.parse.NamespaceAwareParser;
 
 /**
@@ -15,7 +15,7 @@ import org.ydne.xml.parse.NamespaceAwareParser;
 public class ClasspathSchemaLocatorTest {
 	
 	/** Class under test. */
-	private SchemaLocator subject = new ClasspathSchemaLocator();
+	private XmlSchemaLocator subject = new ClasspathSchemaLocator();
 	
 	@Test
 	public void locateShiporderSchema() throws Exception {

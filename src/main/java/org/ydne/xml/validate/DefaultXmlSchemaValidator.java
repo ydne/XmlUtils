@@ -10,14 +10,14 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
 import org.w3c.dom.Node;
-import org.ydne.xml.SchemaLocator;
+import org.ydne.xml.XmlSchemaLocator;
 import org.ydne.xml.XmlSchemaValidator;
 
 public class DefaultXmlSchemaValidator implements XmlSchemaValidator {
 
-	private SchemaLocator schemaLocator;
+	private XmlSchemaLocator schemaLocator;
 
-	public DefaultXmlSchemaValidator(SchemaLocator schemaLocator) {
+	public DefaultXmlSchemaValidator(XmlSchemaLocator schemaLocator) {
 		super();
 		this.schemaLocator = schemaLocator;
 	}
@@ -45,11 +45,11 @@ public class DefaultXmlSchemaValidator implements XmlSchemaValidator {
 		validator.validate(new DOMSource(xml));
 	}
 
-	public SchemaLocator getSchemaLocator() {
+	public XmlSchemaLocator getSchemaLocator() {
 		return schemaLocator;
 	}
 
-	public void setSchemaLocator(SchemaLocator schemaLocator) {
+	public void setSchemaLocator(XmlSchemaLocator schemaLocator) {
 		this.schemaLocator = schemaLocator;
 	}
 }

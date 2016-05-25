@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<example:shiporder xmlns:example="http://test/example/schema/shiporder/1_0" orderid="String">
+	<example:orderperson>String</example:orderperson>
+	<example:shipto>
+		<example:name>String</example:name>
+		<example:address>String</example:address>
+		<example:country>String</example:country>
+	</example:shipto>
+	<example:item>
+		<example:title>String</example:title>
+		<example:quantity>2</example:quantity>
+		<example:price>0.0</example:price>
+	</example:item>
+</example:shiporder>
