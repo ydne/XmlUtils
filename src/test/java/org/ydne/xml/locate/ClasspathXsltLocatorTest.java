@@ -1,13 +1,13 @@
 package org.ydne.xml.locate;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.InputStream;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 import org.ydne.xml.XsltLocator;
 import org.ydne.xml.parse.NamespaceAwareParser;
+
+import java.io.InputStream;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Unit tests for {@link ClasspathXsltLocator}.

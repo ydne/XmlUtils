@@ -1,14 +1,14 @@
 package org.ydne.xml.validate;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.InputStream;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 import org.ydne.xml.XsltValidator;
 import org.ydne.xml.parse.NamespaceAwareParser;
 import org.ydne.xml.test.XsltLocatorStub;
+
+import java.io.InputStream;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class DefaultXsltValidatorTest {
 	

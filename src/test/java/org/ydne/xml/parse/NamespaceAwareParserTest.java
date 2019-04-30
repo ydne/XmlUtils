@@ -1,14 +1,14 @@
 package org.ydne.xml.parse;
 
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.io.InputStream;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.ydne.xml.DomParser;
+
+import java.io.InputStream;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class NamespaceAwareParserTest {
 	
